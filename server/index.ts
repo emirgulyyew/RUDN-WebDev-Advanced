@@ -24,9 +24,14 @@ app.get("/cards", (req, res) => {
 app.post("/cards", (req, res) => {
   const { title } = req.body;
 
+  if (!title || typeof title !== "string" || !title.trim()) {
+    res.status(400).json({ error: "title обязателен и не может быть пустым" });
+    return;
+  }
+
   const newCard: Card = {
     id: String(Date.now()),
-    title: String(title).trim(),
+    title: title.trim(),
     isDone: false,
     isUrgent: false,
   };
