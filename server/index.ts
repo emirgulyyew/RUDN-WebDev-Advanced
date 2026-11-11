@@ -1,4 +1,5 @@
 import express from "express";
+import type { Request, Response, NextFunction } from "express";
 
 type Card = {
   id: string;
@@ -38,6 +39,27 @@ app.post("/cards", (req, res) => {
 
   cards.push(newCard);
   res.status(201).json(newCard);
+});
+
+app.delete("/cards/:id", (req, res) => {
+  const index = cards.findIndex((card) => card.id === req.params.id);
+
+  if (index === -1) {
+    res.status(404).json({ error: "Карточка не найдена" });
+    return;
+  }
+
+  const [deletedCard] = cards.splice(index, 1);
+  res.status(200).json(deletedCard);
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: "Маршрут не найден" });
+});
+
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  console.error(err);
+  res.status(500).json({ error: "Внутренняя ошибка сервера" });
 });
 
 app.listen(3001, () => {
