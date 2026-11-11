@@ -40,6 +40,18 @@ app.post("/cards", (req, res) => {
   res.status(201).json(newCard);
 });
 
+app.delete("/cards/:id", (req, res) => {
+  const index = cards.findIndex((card) => card.id === req.params.id);
+
+  if (index === -1) {
+    res.status(404).json({ error: "Карточка не найдена" });
+    return;
+  }
+
+  const [deletedCard] = cards.splice(index, 1);
+  res.status(200).json(deletedCard);
+});
+
 app.listen(3001, () => {
   console.log("Сервер запущен: http://localhost:3001");
 });
