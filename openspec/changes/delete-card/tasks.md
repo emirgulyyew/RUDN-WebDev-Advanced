@@ -33,6 +33,8 @@
 
 ## Task 3 — Передача id и onDelete через BoardColumn
 
+- [x] Пропустить `id` и `onDelete` от `BoardColumn` до `BoardCard`.
+
 **Цель:** Пропустить `id` и `onDelete` от `BoardColumn` до `BoardCard`.
 
 **Что сделать:**
