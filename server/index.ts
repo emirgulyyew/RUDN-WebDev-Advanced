@@ -1,4 +1,5 @@
 import express from "express";
+import type { Request, Response, NextFunction } from "express";
 
 type Card = {
   id: string;
@@ -54,6 +55,11 @@ app.delete("/cards/:id", (req, res) => {
 
 app.use((req, res) => {
   res.status(404).json({ error: "Маршрут не найден" });
+});
+
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  console.error(err);
+  res.status(500).json({ error: "Внутренняя ошибка сервера" });
 });
 
 app.listen(3001, () => {
