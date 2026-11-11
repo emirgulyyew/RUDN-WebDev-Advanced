@@ -18,3 +18,21 @@
   gap: 16px;
   overflow-x: auto;
 }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 16px;
+  color: #e53e3e;
+}

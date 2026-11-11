@@ -48,15 +48,17 @@
 
 ## Task 4 — App: useMutation + useQuery + window.confirm
 
+- [x] Подключить React Query для загрузки карточек и удаления через useMutation.
+
 **Цель:** Подключить React Query для загрузки карточек и удаления через useMutation.
 
 **Что сделать:**
-- Заменить хардкод-массив карточек на `useQuery(["cards"], fetchCards)`.
-- Создать `useMutation` с функцией `deleteCard` из API.
-- В `mutation.mutate` сначала вызвать `window.confirm()`, если отмена — не вызывать API.
-- После успешного удаления — инвалидация `["cards"]` через `queryClient.invalidateQueries`.
-- Обработка ошибки: показать alert или console.error.
-- Передать `onDelete` в `BoardColumn`.
-- Обработать состояния `isLoading` и `isError` из `useQuery`.
+- [x] Заменить хардкод-массив карточек на `useQuery(["cards"], fetchCards)`.
+- [x] Создать `useMutation` с функцией `deleteCard` из API.
+- [x] В `mutation.mutate` сначала вызвать `window.confirm()`, если отмена — не вызывать API.
+- [x] После успешного удаления — инвалидация `["cards"]` через `queryClient.invalidateQueries`.
+- [x] Обработка ошибки: показать alert или console.error.
+- [x] Передать `onDelete` в `BoardColumn`.
+- [x] Обработать состояния `isLoading` и `isError` из `useQuery`.
 
 **Критерии готовности:** Карточки загружаются с сервера, удаление работает через `window.confirm` + `useMutation`, список обновляется после удаления, ошибки обрабатываются.
