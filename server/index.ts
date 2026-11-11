@@ -52,6 +52,10 @@ app.delete("/cards/:id", (req, res) => {
   res.status(200).json(deletedCard);
 });
 
+app.use((req, res) => {
+  res.status(404).json({ error: "Маршрут не найден" });
+});
+
 app.listen(3001, () => {
   console.log("Сервер запущен: http://localhost:3001");
 });
