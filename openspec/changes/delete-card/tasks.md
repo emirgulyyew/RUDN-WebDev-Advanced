@@ -1,5 +1,7 @@
 ## Task 1 — Клиентское API: функция deleteCard
 
+- [x] Добавить функцию `deleteCard(id)` в `client/src/api/cards.ts`.
+
 **Цель:** Добавить функцию `deleteCard(id)` в `client/src/api/cards.ts`.
 
 **Что сделать:**

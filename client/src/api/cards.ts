@@ -15,3 +15,13 @@ export async function createCard(title: string): Promise<Card> {
   if (!response.ok) throw new Error("Не удалось создать карточку");
   return response.json();
 }
+
+export async function deleteCard(id: string): Promise<void> {
+  const response = await fetch(`/api/cards?id=${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    if (response.status === 404) throw new Error("Карточка не найдена");
+    throw new Error("Не удалось удалить карточку");
+  }
+}
